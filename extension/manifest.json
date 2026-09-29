@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "MailMate - Gmail Email Tracker",
+  "version": "1.0.0",
+  "description": "Stealth 1x1 tracking pixel and link click analytics directly inside Gmail compose.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "http://localhost:5000/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MailMate Tracker"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
