@@ -294,6 +294,7 @@ app.post('/api/emails', async (req: Request, res: Response) => {
     const trackingId = `tk_${uuidv4().replace(/-/g, '').slice(0, 10)}`;
     const emailId = `em_${uuidv4().slice(0, 8)}`;
     const baseUrl = resolveBaseUrl(req);
+    const settings = db.getSettings();
 
     // Link wrapping logic
     const trackedLinks: TrackedLink[] = [];
